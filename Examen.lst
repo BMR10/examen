@@ -1,0 +1,51 @@
+0001   0000             ; Examnen
+0002   0000             ; Alumno; Ramirez Diez Brian Michel
+0003   0000             .org 0000h
+0004   0000 3E 89       	ld a,89h
+0005   0002 D3 03       	out (CW),a
+0006   0004 31 FF 27    	ld SP, 27ffh
+0007   0007 C3 50 00    	JP 50H
+0008   000A             .ORG 50h
+0009   0050             rutina:
+0010   0050 DB 02       	IN a, (KEYB)
+0011   0052 D3 01       	out (LED), a
+0012   0054 26 00       	ld h, 00h
+0013   0056 6F          	ld l, a
+0014   0057 7E          	ld a, (HL)
+0015   0058 D3 00       	out (DIS), a
+0016   005A C3 50 00    	jp rutina
+0017   005D             
+0018   005D             ;tabla de datos
+0019   005D             	.org 44h
+0020   0044 06          	.db 06h
+0021   0045             	.org 42h
+0022   0042 5B          	.db 5Bh
+0023   0043             	.org 41h
+0024   0041 4F          	.db 4Fh
+0025   0042             	.org 24h
+0026   0024 66          	.db 66h
+0027   0025             	.org 22h
+0028   0022 6D          	.db 6Dh
+0029   0023             	.org 21h
+0030   0021 5F          	.db 5Fh
+0031   0022             	.org 14h
+0032   0014 07          	.db 07h
+0033   0015             	.org 12h
+0034   0012 7F          	.db 7Fh
+0035   0013             	.org 11h
+0036   0011 67          	.db 67H
+0037   0012             	.org 0AH
+0038   000A 00          	.db 00H
+0039   000B             
+0040   000B             ;segmento de datos
+0041   000B              .org 700h
+0042   0700             
+0043   0700             ;constante
+0044   0700             
+0045   0700             DIS:  .equ 00h
+0046   0700             LED:  .equ 01h
+0047   0700             KEYB: .equ 02h
+0048   0700             CW:   .equ 03h
+0049   0700             
+0050   0700             end
+Number of errors = 0
